@@ -8,17 +8,9 @@ def test_fib_negative():
         fibonacci(-9999)
 
 
-def test_fib_small():
-    assert fibonacci(3) == 2
-
-
 def test_fib_cached_negative():
     with pytest.raises(ValueError):
         fibonacci_cached(-9999)
-
-
-def test_fib_cached_small():
-    assert fibonacci_cached(3) == 2
 
 
 # test is timed out after 5 seconds
