@@ -10,7 +10,7 @@ def sub(t1: Number, t2: Number) -> Number:
     return t1 - t2
 
 
-def div(t1: Number, t2: Number) -> :
+def div(t1: Number, t2: Number) -> Number:
     """For two integers t1 and t2, returns t1/t2."""
     if t2 == 0:
         raise ValueError("Division by 0")
