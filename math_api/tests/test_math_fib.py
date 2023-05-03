@@ -18,7 +18,7 @@ def test_fib_cached_negative():
 
 
 def test_fib_cached_small():
-    assert fibonacci_cached(3) == 3
+    assert fibonacci_cached(3) == 2
 
 
 # test is timed out after 5 seconds
