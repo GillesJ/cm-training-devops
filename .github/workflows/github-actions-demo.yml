@@ -2,8 +2,33 @@ name: GitHub Actions Demo
 run-name: Code quality
 on: [push]
 jobs:
+  python-test:
+    runs-on: ubuntu-latest
+    name: Python unit test
+    steps:
+      - name: Check out source repository
+        uses: actions/checkout@v3
+      - name: Set up Python environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install pre-commit
+      - name: Run pre-commit linting
+        run: pre-commit run --show-diff-on-failure --color=always ${{ inputs.extra_args }}
   python-lint:
     runs-on: ubuntu-latest
+    name: Python Lint
     steps:
-      - uses: actions/checkout@v1
-      - uses: ricardochaves/python-lint@v1.4.0
+      - name: Check out source repository
+        uses: actions/checkout@v3
+      - name: Set up Python environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install pytest pytest-cov
+      - name: Run checks
+        run: |
+          pytest --cov=com --cov-report=xml --cov-report=html
+
