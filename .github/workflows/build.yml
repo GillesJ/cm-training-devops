@@ -21,5 +21,4 @@ jobs:
               DATETAG=$(date "+%H%M%S-%d%m%y")
               TAG="ghcr.io/gillesj/cd-demo:$DATETAG"
               docker build . --tag=$TAG
-              docker run $TAG
               docker push $TAG
