@@ -2,9 +2,9 @@ name: GitHub Actions Demo
 run-name: Code quality
 on: [push]
 jobs:
-  python-test:
+  python-lint:
     runs-on: ubuntu-latest
-    name: Python unit test
+    name: Python linting with pre-commit
     steps:
       - name: Check out source repository
         uses: actions/checkout@v3
@@ -16,9 +16,9 @@ jobs:
         run: pip install pre-commit
       - name: Run pre-commit linting
         run: pre-commit run --show-diff-on-failure --color=always ${{ inputs.extra_args }}
-  python-lint:
+  python-test:
     runs-on: ubuntu-latest
-    name: Python Lint
+    name: Python Unit Test
     steps:
       - name: Check out source repository
         uses: actions/checkout@v3
