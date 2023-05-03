@@ -2,7 +2,7 @@ name: GitHub Actions Demo
 run-name: Code quality
 on: [push]
 jobs:
-  Python lint:
+  python-lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
